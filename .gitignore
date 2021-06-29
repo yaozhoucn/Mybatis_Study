@@ -1,2 +1,4 @@
 # Project exclude paths
 /mybatis_01/target/
+.idea
+Mybatis_Study.iml
