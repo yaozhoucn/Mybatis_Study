@@ -21,7 +21,7 @@
             </dataSource>
         </environment>
     </environments>
-    <!-- 将mapper文件加入到配置文件中 -->
+    <!-- 每一个mapper.xml需要到Mybatis核心配置文件中进行注册！ -->
     <mappers>
         <mapper resource="com/yaozhou/dao/UaerMapper.xml" />
     </mappers>

@@ -16,10 +16,15 @@ public class UserTest {
     public void Test1(){
         //获取sqlsession对象
         SqlSession sqlSession = MybatisUtils.getSqlSession();
+        //getMapper
+        //方法1：
         UserDao userDao = sqlSession.getMapper(UserDao.class);
+        //方法2：
+        //List<User> userList = sqlSession.selectList("com.yaozhou.dao.UserDao.getUserList");
         List<User> userList = userDao.getUserList();
         for (User user : userList) {
             System.out.println(user.getUserName());
         }
+        sqlSession.close();
     }
 }
