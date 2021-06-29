@@ -25,6 +25,7 @@ public class UserTest {
         for (User user : userList) {
             System.out.println(user.getUserName());
         }
+        //关闭sqlsession流
         sqlSession.close();
     }
 }
