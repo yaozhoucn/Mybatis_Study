@@ -10,4 +10,13 @@ import java.util.List;
  */
 public interface UserMapper {
     List<User> getUserList();
+
+    //插入
+    int addUser(User user);
+
+    //修改用户
+    int updateUserById(User user);
+
+    //删除用户
+    int delUserById(int id);
 }

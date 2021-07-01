@@ -6,4 +6,16 @@
     <select id="getUserList" resultType="com.yaozhou.pojo.User">
     select * from smbms.smbms_user;
     </select>
+
+    <insert id="addUser" parameterType="com.yaozhou.pojo.User">
+        insert into smbms_user (id,userName,userPassword) values (#{id},#{userName},#{userPassword});
+    </insert>
+    
+    <update id="updateUserById" parameterType="com.yaozhou.pojo.User">
+        update smbms_user set userName = #{userName},address = #{address} where id = #{id} ;
+    </update>
+
+    <delete id="delUserById" parameterType="int">
+        delete from smbms_user where id = #{id}
+    </delete>
 </mapper>
