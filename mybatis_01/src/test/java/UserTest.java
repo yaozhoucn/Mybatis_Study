@@ -1,9 +1,7 @@
-import com.yaozhou.dao.UserDao;
+import com.yaozhou.dao.UserMapper;
 import com.yaozhou.pojo.User;
 import com.yaozhou.utils.MybatisUtils;
-import org.apache.ibatis.jdbc.SQL;
 import org.apache.ibatis.session.SqlSession;
-import org.apache.ibatis.session.SqlSessionFactory;
 import org.junit.Test;
 
 import java.util.List;
@@ -18,7 +16,7 @@ public class UserTest {
         SqlSession sqlSession = MybatisUtils.getSqlSession();
         //getMapper
         //方法1：
-        UserDao userDao = sqlSession.getMapper(UserDao.class);
+        UserMapper userDao = sqlSession.getMapper(UserMapper.class);
         //方法2：
         //List<User> userList = sqlSession.selectList("com.yaozhou.dao.UserDao.getUserList");
         List<User> userList = userDao.getUserList();

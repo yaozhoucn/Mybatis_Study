@@ -2,6 +2,7 @@
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
+    <!--别名-->
     <!--<typeAliases>&lt;!&ndash;别名&ndash;&gt;
         <typeAliases alias="user" type="com.mybatis.po.User"/>
     </typeAliases>-->
@@ -23,6 +24,6 @@
     </environments>
     <!-- 每一个mapper.xml需要到Mybatis核心配置文件中进行注册！ -->
     <mappers>
-        <mapper resource="com/yaozhou/dao/UaerMapper.xml" />
+        <mapper resource="com/yaozhou/dao/UserMapper.xml" />
     </mappers>
 </configuration>
