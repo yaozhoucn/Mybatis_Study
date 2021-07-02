@@ -3,7 +3,7 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.yaozhou.dao.UserMapper">
-    <select id="getUserList" resultType="com.yaozhou.pojo.User">
+    <select id="getUserList" resultType="User">
     select * from smbms.smbms_user;
     </select>
 
