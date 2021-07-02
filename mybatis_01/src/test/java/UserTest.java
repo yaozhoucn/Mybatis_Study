@@ -76,4 +76,21 @@ public class UserTest {
         //关闭sqlsession流
         sqlSession.close();
     }
+    @Test
+    public void getUserListLike(){
+        //获取sqlsession对象
+        SqlSession sqlSession = MybatisUtils.getSqlSession();
+        //getMapper
+        //方法1：
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+        //方法2：
+        //List<User> userList = sqlSession.selectList("com.yaozhou.dao.UserDao.getUserList");
+        List<User> userList = mapper.getUserListLike("孙");
+        for (User user : userList) {
+            System.out.println(user.getUserName());
+        }
+
+        //关闭sqlsession流
+        sqlSession.close();
+    }
 }

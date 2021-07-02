@@ -19,4 +19,7 @@ public interface UserMapper {
 
     //删除用户
     int delUserById(int id);
+
+    //模糊查询用户
+    List<User> getUserListLike(String userName);
 }

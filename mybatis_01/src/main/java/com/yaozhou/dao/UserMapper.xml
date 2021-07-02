@@ -18,4 +18,8 @@
     <delete id="delUserById" parameterType="int">
         delete from smbms_user where id = #{id}
     </delete>
+
+    <select id="getUserListLike" resultType="com.yaozhou.pojo.User" parameterType="String">
+        select * from smbms_user where userName like concat('%',#{userName},'%')
+    </select>
 </mapper>
