@@ -38,10 +38,10 @@
         </environment>
     </environments>
     <!-- 每一个mapper.xml需要到Mybatis核心配置文件中进行注册！ -->
-    <!--<mappers>
-        <mapper resource="com/yaozhou/dao/UserMapper.xml" />
-    </mappers>-->
     <mappers>
-        <mapper class="com.yaozhou.dao.UserMapper"/>
+        <mapper resource="com/yaozhou/dao/UserMapper.xml" />
     </mappers>
+    <!--<mappers>
+        <mapper class="com.yaozhou.dao.UserMapper"/>
+    </mappers>-->
 </configuration>

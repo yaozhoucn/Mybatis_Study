@@ -14,6 +14,7 @@ public class Mybatis05_Test {
     @Test
     public void test01(){
         SqlSession sqlSession = MybatisUtils.getSqlSession();
+        //底层主要使用反射
         UserMapper mapper = sqlSession.getMapper(UserMapper.class);
         List<User> userList2 = mapper.getUserList2();
         for (User user : userList2) {
