@@ -22,4 +22,14 @@ public class Mybatis05_Test {
         }
         sqlSession.close();
     }
+    @Test
+    public void getUserById2(){
+        SqlSession sqlSession = MybatisUtils.getSqlSession();
+        //底层主要使用反射
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+        List<User> user = mapper.getUserById2(1, "系统管理员");
+        System.out.println(user);
+        sqlSession.close();
+    }
+
 }

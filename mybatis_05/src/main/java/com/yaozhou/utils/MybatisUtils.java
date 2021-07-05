@@ -30,4 +30,8 @@ public class MybatisUtils {
         return sqlSessionFactory.openSession();
     }
 
+    //自动提交事务
+   /* public static SqlSession getSqlSession(){
+        return sqlSessionFactory.openSession(true);
+    }*/
 }

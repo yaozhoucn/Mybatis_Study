@@ -1,6 +1,7 @@
 package com.yaozhou.dao;
 
 import com.yaozhou.pojo.User;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
@@ -31,4 +32,8 @@ public interface UserMapper {
     //使用注解
     @Select("select * from smbms_user")
     List<User> getUserList2();
+
+    //多个参数
+    @Select("select * from smbms_user where id = #{id} and userName = #{userName}")
+    List<User> getUserById2(@Param("id") int id, @Param("userName") String userName);
 }
