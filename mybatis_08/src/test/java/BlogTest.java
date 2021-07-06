@@ -5,8 +5,10 @@ import com.yaozhou.utils.MybatisUtils;
 import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 
 /**
  * Created by WXHang on HANG at 2021/7/6 12:41
@@ -37,7 +39,7 @@ public class BlogTest {
         sqlSession.close();
     }
     @Test
-    public void getBlog(){
+    public void updateBlog(){
         HashMap<String, Object> map = new HashMap<String, Object>();
         //HashMap map = new HashMap();
        map.put("title","Mybatis如此简单");
@@ -46,6 +48,46 @@ public class BlogTest {
         SqlSession sqlSession = MybatisUtils.getSqlSession();
         BlogMapper mapper = sqlSession.getMapper(BlogMapper.class);
         mapper.updateBlog(map);
+        sqlSession.commit();
+        sqlSession.close();
+
+    }
+    @Test
+    public void getBlog(){
+        HashMap<String, Object> map = new HashMap<String, Object>();
+        //HashMap map = new HashMap();
+        map.put("title","Mybatis如此简单");
+        map.put("author","尧神");
+        SqlSession sqlSession = MybatisUtils.getSqlSession();
+        BlogMapper mapper = sqlSession.getMapper(BlogMapper.class);
+        List<Blog> blogList = mapper.getBlog(map);
+        for (Blog blog : blogList) {
+            System.out.println(blog);
+        }
+        sqlSession.commit();
+        sqlSession.close();
+
+    }
+    @Test
+    public void queryBlogByForEach(){
+        HashMap map = new HashMap();
+        //HashMap map = new HashMap();
+        List ids = new ArrayList();
+//        ids.add(0,1);
+//        ids.add(1,2);
+//        ids.add(2,3);
+//        ids.add(3,4);
+        ids.add(1);
+        ids.add(2);
+        ids.add(3);
+        ids.add(4);
+        map.put("ids",ids);
+        SqlSession sqlSession = MybatisUtils.getSqlSession();
+        BlogMapper mapper = sqlSession.getMapper(BlogMapper.class);
+        List<Blog> blogList = mapper.queryBlogByForEach(map);
+        for (Blog blog : blogList) {
+            System.out.println(blog);
+        }
         sqlSession.commit();
         sqlSession.close();
 

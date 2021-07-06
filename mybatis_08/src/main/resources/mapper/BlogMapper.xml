@@ -2,6 +2,17 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.yaozhou.dao.BlogMapper">
+
+    <!--sql片段-->
+    <sql id="title_author_view">
+        <if test="title != null">
+            and title = #{title}
+        </if>
+
+        <if test="author != null">
+            and author = #{author}
+        </if>
+    </sql>
     <insert id="addBlog" parameterType="Blog">
         insert into blog (id, title, author, create_time, views)
         values (#{id},#{title},#{author},#{createTime},#{views});
@@ -9,13 +20,7 @@
 
     <select id="getBlog" parameterType="map" resultType="Blog">
         select * from blog where 1=1
-        <if test="title != null">
-            and title = #{title}
-        </if>
-
-        <if test="author != null">
-            and title = #{author}
-        </if>
+        <include refid="title_author_view"/>
     </select>
 
     <select id="queryBlogChoose" parameterType="map" resultType="Blog">
@@ -49,4 +54,13 @@
             title = #{title}
         </where>
     </update>
+    <!--使用foreach查询blog-->
+    <select id="queryBlogByForEach" parameterType="map" resultType="Blog">
+        select * from blog
+        <where>
+            <foreach collection="ids" item="id" open="(" separator="or" close=")">
+                id = #{id}
+            </foreach>
+        </where>
+    </select>
 </mapper>
