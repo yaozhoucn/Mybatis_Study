@@ -83,6 +83,8 @@ public class BlogTest {
         ids.add(4);
         map.put("ids",ids);
         SqlSession sqlSession = MybatisUtils.getSqlSession();
+        //清除缓存
+        sqlSession.clearCache();
         BlogMapper mapper = sqlSession.getMapper(BlogMapper.class);
         List<Blog> blogList = mapper.queryBlogByForEach(map);
         for (Blog blog : blogList) {
