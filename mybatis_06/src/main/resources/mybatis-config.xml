@@ -8,6 +8,7 @@
     </typeAliases>-->
     <!-- 数据库环境 -->
 
+
     <!--引入外部配置文件-->
     <properties resource="db.properties" />
     <!--设置日志-->
@@ -19,6 +20,7 @@
     </settings>
     <!--别名-->
     <typeAliases>
+        <typeAlias type="com.yaozhou.pojo.Student" alias="Student"/>
         <typeAlias type="com.yaozhou.pojo.Teacher" alias="Teacher"/>
     </typeAliases>
 

@@ -1,4 +1,6 @@
+import com.yaozhou.dao.StudentMapper;
 import com.yaozhou.dao.TeacherMapper;
+import com.yaozhou.pojo.Student;
 import com.yaozhou.pojo.Teacher;
 import com.yaozhou.utils.MybatisUtils;
 import org.apache.ibatis.session.SqlSession;
@@ -9,8 +11,8 @@ import java.util.List;
 /**
  * Created by WXHang on HANG at 2021/6/30 0:45
  */
-public class UserTest {
-    static Logger logger = Logger.getLogger(UserTest.class);
+public class Tea_Stu_Test {
+    static Logger logger = Logger.getLogger(Tea_Stu_Test.class);
     @Test
     public void Test1() {
         //获取sqlsession对象
@@ -23,6 +25,16 @@ public class UserTest {
         List<Teacher> teacher = teacherMapper.getTeachetById(1);
         System.out.println(teacher);
         //关闭sqlsession流
+        sqlSession.close();
+    }
+    @Test
+    public void getStudent(){
+        SqlSession sqlSession = MybatisUtils.getSqlSession();
+        StudentMapper mapper = sqlSession.getMapper(StudentMapper.class);
+        List<Student> studentList = mapper.getStudent2();
+        for (Student student : studentList) {
+            System.out.println(student);
+        }
         sqlSession.close();
     }
 }
